@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="在《Real World Hashell》一书里，有一段通过foldr表示foldl的代码 1234myFoldl :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; amyFoldl f z xs &#x3D; foldr step id xs z    where step x g a &#x3D; g (f a x) 刚看到这的时候，感觉特别难懂，尤其是之前没有函数式编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Haskell右折叠实现左折叠">
+<meta property="og:url" content="https://tongluyang.com/2020/05/01/Haskell%E5%8F%B3%E6%8A%98%E5%8F%A0%E5%AE%9E%E7%8E%B0%E5%B7%A6%E6%8A%98%E5%8F%A0/index.html">
+<meta property="og:site_name" content="TongLuyang&#39;s Blog">
+<meta property="og:description" content="在《Real World Hashell》一书里，有一段通过foldr表示foldl的代码 1234myFoldl :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; amyFoldl f z xs &#x3D; foldr step id xs z    where step x g a &#x3D; g (f a x) 刚看到这的时候，感觉特别难懂，尤其是之前没有函数式编">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-01T01:48:18.000Z">
+<meta property="article:modified_time" content="2025-01-26T01:21:54.946Z">
+<meta property="article:author" content="TongLuyang">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://tongluyang.com/2020/05/01/Haskell%E5%8F%B3%E6%8A%98%E5%8F%A0%E5%AE%9E%E7%8E%B0%E5%B7%A6%E6%8A%98%E5%8F%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Haskell右折叠实现左折叠 | TongLuyang's Blog</title>
+  
+
+
+
+
+
+
+  <!-- Clarity tracking code for https://tongluyang.com/ -->
+  <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "9yo8r8hvyo");
+  </script>
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TongLuyang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2020/05/01/Haskell%E5%8F%B3%E6%8A%98%E5%8F%A0%E5%AE%9E%E7%8E%B0%E5%B7%A6%E6%8A%98%E5%8F%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Haskell右折叠实现左折叠
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-01 09:48:18" itemprop="dateCreated datePublished" datetime="2020-05-01T09:48:18+08:00">2020-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/computer/" itemprop="url" rel="index">
+                    <span itemprop="name">computer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在《Real World Hashell》一书里，有一段通过foldr表示foldl的代码</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myFoldl</span> :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; a</span><br><span class="line"></span><br><span class="line"><span class="title">myFoldl</span> f z xs = foldr step id xs z</span><br><span class="line">    <span class="keyword">where</span> step x g a = g (f a x)</span><br></pre></td></tr></table></figure>
+<p>刚看到这的时候，感觉特别难懂，尤其是之前没有函数式编程的经历，对柯里化了解不深的情况下，更加一头雾水</p>
+<p>如果是顺序读这本书的话，我们应该已经知道了<code>foldr</code>的签名</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :<span class="class"><span class="keyword">type</span> foldr</span></span><br><span class="line"><span class="title">foldr</span> :: <span class="type">Foldable</span> t =&gt; (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b</span><br></pre></td></tr></table></figure>
+
+<h3 id="困惑"><a href="#困惑" class="headerlink" title="困惑"></a>困惑</h3><p>这里最让人感到奇怪的有两点</p>
+<ol>
+<li><p><code>foldr</code>的签名是接受三个参数，如下</p>
+<ol>
+<li>一个函数，这个函数接受两个参数，类型a和类型b，返回一个类型b的值</li>
+<li>一个类型b的初始值</li>
+<li>一个可折叠类型a，这里我们简单当作一个列表</li>
+</ol>
+<p>但是，实际上我们传递了四个参数</p>
+</li>
+<li><p>上面说了，<code>foldr</code>的第一个参数是个函数，接受两个参数，但传递过去的step函数，有三个参数</p>
+</li>
+</ol>
+<p>上述两点，也可以总结成一点：<strong>参数个数不匹配</strong>。</p>
+<h3 id="Currying"><a href="#Currying" class="headerlink" title="Currying"></a>Currying</h3><p>要理解这个问题，我们需要一些其他知识，也就是“部分函数应用和柯里化”(Currying)</p>
+<p>这部分内容在原书后续有讲到</p>
+<p>这两部分是相辅相成的，理解了部分函数应用和柯里化，会更容易弄明白foldr表示foldl；而弄清楚foldr表示foldl，则会对部分函数应用和柯里化有更深刻的理解</p>
+<p>在说部分函数应用和柯里化之前，我们先看看一般命令式语言中的现象</p>
+<p>比如有如下Java代码，两数相加</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数需要两个参数a和b，然后返回两数之和</p>
+<p>我们可以通过<code>add(1, 2)</code>的方式调用这个函数，但是，<code>add(1)</code>则是不合法的，因为没有此种方法签名</p>
+<p>与Java不同的是，在Haskell中，这是允许的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Prelude&gt; add a b &#x3D; a + b</span><br><span class="line">Prelude&gt; :type add</span><br><span class="line">add :: Num a &#x3D;&gt; a -&gt; a -&gt; a</span><br><span class="line">Prelude&gt; :type add 1</span><br><span class="line">add 1 :: Num a &#x3D;&gt; a -&gt; a</span><br></pre></td></tr></table></figure>
+
+<p>在Haskell中，本质上，所有的函数都只接受一个参数</p>
+<p>上面的<code>add</code>函数，看上去接受两个类型为a的参数，返回一个类型为a的值，实际上是先接受一个类型为a的参数，返回一个函数，这个函数再接受一个类型为a的参数，返回类型为a的值</p>
+<p>就像我们有一个机床，可以将一堆铁疙瘩制作成各种机器，然后我们可以用制造出的机器，将原料加工成成品</p>
+<p>现在我们要做衣服，做衣服需要布料，需要使用缝纫机，我们还没缝纫机，不过我们有机床，有铁疙瘩，可以造一个出来，在Haskell里可以表示为</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Iron</span> = <span class="type">String</span></span></span><br><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Cloth</span> = <span class="type">String</span></span></span><br><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Clothes</span> = <span class="type">String</span></span></span><br><span class="line"></span><br><span class="line"><span class="title">machineTool</span> :: <span class="type">Iron</span> -&gt; <span class="type">Cloth</span> -&gt; <span class="type">Clothes</span></span><br></pre></td></tr></table></figure>
+
+<p>如果用类似Java语言解释这个签名的话，就是<code>machineTool</code>这个函数需要两个参数，铁和布，将这两个参数同时放进去，会出来一个衣服</p>
+<p>在Haskell里，并不需要同时传两个参数，我们可以只传一个</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sewMachine</span> = machineTool <span class="string">"a piece of iron"</span></span><br></pre></td></tr></table></figure>
+<p>这是合法的，表示给机床一块铁，做出了一台缝纫机，缝纫机是个函数，可以继续接受参数，它现在接受一个Cloth类型的参数，返回Clothes类型的结果</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*<span class="type">Main</span>&gt; :<span class="class"><span class="keyword">type</span> sewMachine </span></span><br><span class="line"><span class="title">sewMachine</span> :: <span class="type">Cloth</span> -&gt; <span class="type">Clothes</span></span><br></pre></td></tr></table></figure>
+
+<p>这个缝纫机可以接受一匹布，产生一件衣服 <code>sewMachine &quot;a piece of cloth&quot;</code></p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>回到最初的右折叠表示左折叠问题</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myFoldl</span> f z xs = foldr step id xs z</span><br><span class="line">    <span class="keyword">where</span> step x g a = g (f a x)</span><br></pre></td></tr></table></figure>
+<p>再看一下foldr的签名</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :<span class="class"><span class="keyword">type</span> foldr</span></span><br><span class="line"><span class="title">foldr</span> :: <span class="type">Foldable</span> t =&gt; (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b</span><br></pre></td></tr></table></figure>
+
+<p>foldr第一个参数是函数，其返回值类型为b，和foldr第二个参数，也就是foldr的初始值类型一样，也是b</p>
+<p>在<code>foldr step id xs z</code>这里，第二个参数，也就是初始值，是<code>id</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :<span class="class"><span class="keyword">type</span> id</span></span><br><span class="line"><span class="title">id</span> :: a -&gt; a</span><br></pre></td></tr></table></figure>
+<p>我们看到id是一个函数，接受一个类型为a的参数，返回的类型同样也是a（实际上<code>id</code>是<code>identity</code>的缩写，本身的意思，<code>id</code>作用是返回参数本身）</p>
+<p>既然初始值类型是函数，那foldr的第一个参数，返回的也是一个函数</p>
+<p>我们看到step的定义，它可以接受三个参数，但是在foldr的应用过程中，只会应用两个（列表的从右往左下一个值和初始值或者上一次函数的计算结果），结合函数的部分应用和柯里化，我们知道step函数在应用两个参数后，返回的是另一个函数，这个函数接受一个参数（step函数参数的第三个）</p>
+<p>也就是foldr的第一个参数，类型为<code>(a -&gt; b -&gt; b)</code>，在实际执行过程中，<code>a</code>类型是列表内容的类型，第二个参数<code>b</code>类型，第一次是初始值，也就是<code>id</code>，实际类型是一个函数，同时，结果仍然是<code>b</code>，是一个函数，作为下一次计算<code>(a -&gt; b -&gt; b)</code>的第二参数</p>
+<p>由于foldr的最终返回结果是一个函数，所以可以应用一个参数，这个参数在<code>foldr step id xs z</code>这里，也就是<code>z</code>，或者说可以把<code>foldr step id xs z</code>看作是<code>(foldr step id xs) z</code>，foldr全部折叠完，其最后结果是一个函数，然后用z作为函数的参数对这个最终函数进行调用</p>
+<h3 id="展开"><a href="#展开" class="headerlink" title="展开"></a>展开</h3><p>参数个数的问题弄清楚后，我们可以把表达式进行展开，将实际参数带入到表达式的变量中</p>
+<p>假设我们现在使用<code>myFoldl</code>对一个列表求和，列表是<code>[1,2]</code>，求和的初始值是<code>0</code></p>
+<p>按照左折叠的规则，我们预期执行顺序应该是<code>((0 + 1) + 2)</code>，从初始值和列表第一个元素开始相加，其和与列表的第二个元素继续相加，如此从左到右一次计算整个列表，并返回最终结果</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myFoldl</span> f z xs = foldr step id xs z</span><br><span class="line">    <span class="keyword">where</span> step x g a = g (f a x)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 我们的调用为</span></span><br><span class="line"><span class="title">myFoldl</span> (+) <span class="number">0</span> [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"><span class="comment">-- 参数带入变量</span></span><br><span class="line"><span class="comment">-- f == (+)</span></span><br><span class="line"><span class="comment">-- z == 0</span></span><br><span class="line"><span class="comment">-- xs == [1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 也就是</span></span><br><span class="line"><span class="title">foldr</span> step id [<span class="number">1</span>,<span class="number">2</span>] <span class="number">0</span></span><br><span class="line"></span><br><span class="line">==&gt; foldr (\x g a -&gt; g (f a x)) id [<span class="number">1</span>,<span class="number">2</span>] <span class="number">0</span></span><br><span class="line"><span class="comment">-- 参数再带入到变量，列表从右向左</span></span><br><span class="line"><span class="comment">-- x == 2</span></span><br><span class="line"><span class="comment">-- g == id</span></span><br><span class="line"><span class="comment">-- f == (+)</span></span><br><span class="line"></span><br><span class="line">==&gt; foldr (\x g a -&gt; g (f a x)) (\a -&gt; id ((+) a <span class="number">2</span>)) [<span class="number">1</span>] <span class="number">0</span></span><br><span class="line"><span class="comment">-- x == 1</span></span><br><span class="line"><span class="comment">-- g == (\a = id ((+) a 2))</span></span><br><span class="line"><span class="comment">-- f == (+)</span></span><br><span class="line"></span><br><span class="line">==&gt; foldr (\x g a -&gt; g (f a x)) (\a -&gt; (\a -&gt; id ((+) a <span class="number">2</span>)) ((+) a <span class="number">1</span>)) [] <span class="number">0</span></span><br><span class="line"></span><br><span class="line">==&gt;     (\a -&gt; (\a -&gt; id ((+) a <span class="number">2</span>)) ((+) a <span class="number">1</span>)) <span class="number">0</span></span><br><span class="line"><span class="comment">--               ↑                  |........|</span></span><br><span class="line"><span class="comment">--               ↑                      ↓</span></span><br><span class="line"><span class="comment">--               a == ((+) a 1)   &lt;----/</span></span><br><span class="line"></span><br><span class="line">==&gt;     (\a -&gt; (id ((+) ((+) a <span class="number">1</span>) <span class="number">2</span>))) <span class="number">0</span></span><br><span class="line"><span class="comment">--              ↑</span></span><br><span class="line"><span class="comment">--              id返回参数本身</span></span><br><span class="line"></span><br><span class="line">==&gt;     (\a -&gt; ((+) ((+) a <span class="number">1</span>) <span class="number">2</span>)) <span class="number">0</span></span><br><span class="line"><span class="comment">--        ↑</span></span><br><span class="line"><span class="comment">--        a == 0</span></span><br><span class="line"></span><br><span class="line">==&gt;     ((+) ((+) <span class="number">0</span> <span class="number">1</span>) <span class="number">2</span>)</span><br><span class="line"><span class="comment">-- 改成中缀</span></span><br><span class="line"></span><br><span class="line">==&gt;     ((+) <span class="number">0</span> <span class="number">1</span>) + <span class="number">2</span></span><br><span class="line">==&gt;     (<span class="number">0</span> + <span class="number">1</span>) + <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>经过上述将实际参数带入到变量，推导后，myFoldl的行为确实与预期一样，我们就这样通过foldr表示了foldl</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/02/%E4%B8%89%E5%90%91%E5%88%87%E5%88%86%E5%BF%AB%E6%8E%92/" rel="next" title="三向切分快排">
+                  <i class="fa fa-chevron-left"></i> 三向切分快排
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/12/29/%E9%80%9A%E8%BF%87github-pages%E4%BD%BF%E7%94%A8hexo%EF%BC%88next%E4%B8%BB%E9%A2%98%EF%BC%89%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="通过github pages使用hexo（next主题）搭建博客">
+                  通过github pages使用hexo（next主题）搭建博客 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#困惑"><span class="nav-number">1.</span> <span class="nav-text">困惑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Currying"><span class="nav-number">2.</span> <span class="nav-text">Currying</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析"><span class="nav-number">3.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展开"><span class="nav-number">4.</span> <span class="nav-text">展开</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="TongLuyang"
+      src="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+  <p class="site-author-name" itemprop="name">TongLuyang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TongLuyang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'db5da856cb417b60f542',
+      clientSecret: '4d0531cbf95563898c764e2d58e2aa61d1b79aa1',
+      repo: 'tongluyang.github.io',
+      owner: 'tongluyang',
+      admin: ['tongluyang'],
+      id: '2496daaa11327dab435775062ab3d73b',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

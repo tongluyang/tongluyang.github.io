@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="概述 动态规划（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。  此为wiki百科中的定义，重点是分解 换句话说，就是：  将一个大问题，拆分成几个小问题  求小问题的解  推出大问题的解   以上还有个隐含的条件，即被分解的小问题要和大问题有联系，这样才能从小问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划详解一">
+<meta property="og:url" content="https://tongluyang.com/2021/12/15/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%E4%B8%80/index.html">
+<meta property="og:site_name" content="TongLuyang&#39;s Blog">
+<meta property="og:description" content="概述 动态规划（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。  此为wiki百科中的定义，重点是分解 换句话说，就是：  将一个大问题，拆分成几个小问题  求小问题的解  推出大问题的解   以上还有个隐含的条件，即被分解的小问题要和大问题有联系，这样才能从小问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-15T11:06:14.000Z">
+<meta property="article:modified_time" content="2025-01-26T01:21:54.947Z">
+<meta property="article:author" content="TongLuyang">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://tongluyang.com/2021/12/15/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%E4%B8%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>动态规划详解一 | TongLuyang's Blog</title>
+  
+
+
+
+
+
+
+  <!-- Clarity tracking code for https://tongluyang.com/ -->
+  <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "9yo8r8hvyo");
+  </script>
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TongLuyang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2021/12/15/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          动态规划详解一
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-15 19:06:14" itemprop="dateCreated datePublished" datetime="2021-12-15T19:06:14+08:00">2021-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/computer/" itemprop="url" rel="index">
+                    <span itemprop="name">computer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>动态规划（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
+</blockquote>
+<p>此为wiki百科中的定义，重点是<code>分解</code></p>
+<p>换句话说，就是：</p>
+<ol>
+<li><p>将一个大问题，拆分成几个小问题</p>
+</li>
+<li><p>求小问题的解</p>
+</li>
+<li><p>推出大问题的解</p>
+</li>
+</ol>
+<p>以上还有个隐含的条件，即被分解的小问题要和大问题有联系，这样才能从小问题的解推出大问题的解</p>
+<h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><h4 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h4><blockquote>
+<p>有<code>N</code>件物品和一个容量是<code>V</code>的背包。每件物品只能使用一次。<br><br>第<code>i</code>件物品的体积是<code>v[i]</code>，价值是<code>w[i]</code>。<br><br>求解在背包容量范围内，所能装物品的最大价值是多少</p>
+</blockquote>
+<h5 id="初步尝试"><a href="#初步尝试" class="headerlink" title="初步尝试"></a>初步尝试</h5><p>用最直观的想法来解决此问题，比较容易想到的是：</p>
+<ol>
+<li>先装单位价值最高的</li>
+<li>再继续装剩下的物品中，单位价值最高的</li>
+</ol>
+<p>咦，看起来我把问题分解了</p>
+<p>假设第k件物品是单位价值最高的，那只需要解决</p>
+<blockquote>
+<p>有<code>N-1</code>件物品（除了第k件）和一个容量为<code>V-v[k]</code>的背包。。。。</p>
+</blockquote>
+<p>被分解的问题又可以以同样的方式进一步分解，分解的过程中N和V越来越小</p>
+<p>若N=1或V&lt;=0，也就有了唯一解</p>
+<p>这样我们做到了之前所说的：第一步问题拆分和第二步求小问题的解</p>
+<p>第三步是不是也可以做到了？</p>
+<p>看起来很简单，把所有小问题的解串起来就可以了</p>
+<p>我们找个简单的数算一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; 3</span><br><span class="line">V &#x3D; 5</span><br><span class="line">v &#x3D; [1,2,3]</span><br><span class="line">w &#x3D; [2,4,4]</span><br></pre></td></tr></table></figure>
+<p>很容易看出，第1、2个物品单位价值最高，都是2，剩余第3个为4/3</p>
+<p>根据之前的思路</p>
+<ol>
+<li><p>前两个单位价值一样，但第二个总价更高，所以我们先装第2个；</p>
+</li>
+<li><p>其次装第1个，其单位价值也是最高的；</p>
+</li>
+<li><p>此时，价值为2+4=6，已用容量为1+2=3，剩余容量2</p>
+</li>
+<li><p>再然后，发现剩余的那个已经装不进了</p>
+</li>
+</ol>
+<p>好像不对啊</p>
+<p>如果装2和3的话，价值为4+4=8，总价值更大</p>
+<p>问题出在什么地方？</p>
+<p>我们装了单位价值较高的第1个，但是因为装了它，单位价值较低但总价较高的3装不进去了，如果不装它，反而恰好可以装进去</p>
+<p>因小失大，为了1，丢了3</p>
+<p>鼠目寸光，为了眼前的利益，放弃了后续可能的更高价值</p>
+<p>以上，为<code>贪心</code></p>
+<h5 id="再次尝试"><a href="#再次尝试" class="headerlink" title="再次尝试"></a>再次尝试</h5><p>那如何避免因鼠目寸光造成的因小失大呢？我确实也是根据说明先拆分问题再求解再推大问题的呀</p>
+<p>因为之前只顾眼前，有问题，所以现在在选择时还需要进一步看一下做的本次选择对后续的影响</p>
+<p>比如现在随便选择一个装进背包</p>
+<p>若选的是第1个，则后续子问题就变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; N - 1 &#x3D; 2</span><br><span class="line">V &#x3D; V - 1 &#x3D; 4</span><br><span class="line">v &#x3D; [x, 2, 3]</span><br><span class="line">w &#x3D; [x, 4, 4]</span><br></pre></td></tr></table></figure>
+<p>整个问题的解则为2 + 子问题的解</p>
+<p>若选的是第2个，则后续子问题就变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; N - 1 &#x3D; 2</span><br><span class="line">V &#x3D; V - 2 &#x3D; 3</span><br><span class="line">v &#x3D; [x, x, 3]</span><br><span class="line">w &#x3D; [x, x, 4]</span><br></pre></td></tr></table></figure>
+<p>注意，这里物品1也被拿掉了，相当于1没选，因为先拿2再拿1和先拿1再拿2是一样的，而后者会被选1的那种可能覆盖到，这里无需重复计算</p>
+<p>整个问题的解则为4 + 子问题的解</p>
+<p>若选的是第3个，则后续子问题就变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; N - 1 &#x3D; 2</span><br><span class="line">V &#x3D; V - 3 &#x3D; 2</span><br><span class="line">v &#x3D; [x, x, x]</span><br><span class="line">w &#x3D; [x, x, x]</span><br></pre></td></tr></table></figure>
+<p>整个问题的解则为4 + 子问题的解</p>
+<p>而这时，子问题中的物品已经没有了，结果肯定是0，无需继续拆了</p>
+<p>由于不同的选择，产生的后续子问题也不一样，所以我们无法确定当前选择在后续看来是不是最优的</p>
+<p>但我们可以确定，最优解在这三种选择中的一个（废话，所有可能的选择都被你暴力的一个个全列出来了-_-!）</p>
+<p>且若每个子问题的解是最优的，那本次最优的选择为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max(2 + 子问题1的解, 4 + 子问题2的解, 4 + 子问题3的解)</span><br></pre></td></tr></table></figure>
+<p>没有其他可能了</p>
+<p>到目前为止，我们前进了一小步</p>
+<p>我们把这个大问题，拆成了3个小问题，并能确保能够从小问题的解得出大问题的解</p>
+<p>虽然数量多了，但是问题简单了</p>
+<p>同样</p>
+<p>我们可以把3个小问题，用同样的方式，继续拆分</p>
+<p>这样问题更多了，问题也更简单了</p>
+<p>直到物品没了或背包满了，无需继续拆分为止</p>
+<p>子问题求解后，上一级问题的解就显而易见了，一直到最上层</p>
+<p>以上，我们解决了整个问题</p>
+<p>这种方式叫。。。<code>暴力</code>，暴力的<code>递归</code></p>
+<h5 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h5><p>因为我们遍历了所有的可能</p>
+<p>那，还有什么地方可以优化吗</p>
+<p>我们继续</p>
+<p>之前的数据可能不太好看，我们稍微调整一下，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; 4</span><br><span class="line">V &#x3D; 5</span><br><span class="line">v &#x3D; [1,1,2,3]</span><br><span class="line">w &#x3D; [2,2,4,4]</span><br></pre></td></tr></table></figure>
+<p>我们添加了一个物品，新添加的物品和原来第一个一样</p>
+<p>我们很容易看出：选择1和选择2，是一样的；选择1+2和选择3也是一样的</p>
+<p>因为他们或他们的和 体积和价值完全一样</p>
+<p>因选择他们中的一个而拆分出的子问题，有很大一部分是重叠的</p>
+<p>但是在我们的计算中，子问题被计算了两次，重复了</p>
+<p>为了避免重复计算</p>
+<p>我们可以将子问题的解进行缓存，当第二次遇到同样的子问题时，直接返回已求出的解就可以了</p>
+<p>回顾一下我们拆分子问题的过程</p>
+<ol>
+<li>选择一个物品</li>
+<li>剩余背包的体积和剩余物品组成了一个子问题</li>
+</ol>
+<p>或</p>
+<ol>
+<li>选择另一个物品（前一个物品不选，既选前一个又选当前这种情况不在此考虑，因为会被前一个物品选择后拆分出的子问题覆盖）</li>
+<li>剩余背包的体积和其后物品组成了一个子问题（之所以是其后，原因同上）</li>
+</ol>
+<p>其实第一种是第二种的特殊表现，可以归到第二种去</p>
+<p>由此可见，子问题的唯一性由剩余背包的体积，和当前选择物品的后续物品组成，而后续物品的结尾位置是相同的，我们只需要知道起始位置就够了</p>
+<p>体积的范围为0 - V，位置范围为0 - N</p>
+<p>子问题的解是一个数值</p>
+<p>所以我们可以在第一次遇到子问题时，将其解缓存到一个二维数组中，下次再遇到时，直接返回</p>
+<p>以上，我们通过<code>递归</code>加<code>记忆化</code>的方式，优化了此问题</p>
+<p>优化后，子问题的范围最多有<code>V * N</code>种</p>
+<h5 id="反向求解"><a href="#反向求解" class="headerlink" title="反向求解"></a>反向求解</h5><p>那既然子问题的解是有限的</p>
+<p>那我们可不可以先把所有子问题的解全求出来，然后在求出整个问题的解</p>
+<p>当然可以，这种方式也就是所谓的<code>递推</code></p>
+<p>递推是递归的逆向</p>
+<p>递归时，我们直接求解大问题，当大问题需要用到子问题的解时，再对子问题进行求解</p>
+<p>递推时，我们通过已知小问题的解，推出更大问题的解，推导方向为最终的问题</p>
+<p>那哪些问题的解是已知的？</p>
+<p>我们之前递归时提到</p>
+<blockquote>
+<p>直到物品没了或背包满了，无需继续拆分为止</p>
+</blockquote>
+<p>无需拆分，也就是说当前问题的解已经的已知的了</p>
+<p>显而易见，没物品可选和无空间可装，问题的解都是0</p>
+<p>我们从这个最小的问题，一步步构造大问题</p>
+<p>比这个小问题稍微大点的问题是什么？</p>
+<p>物品多一个，或背包大一点</p>
+<p>物品多一个，就多了一种可能，可能选了这个物品，总价值变的更高了，如果选择当前物品不能使总价值更高，那最高的总价值还是和之前的小问题一样，不会更差</p>
+<p>若要选择多出来的这个物品，那意味着这个物品要占用一部分背包容量，即v[k]，如果整个背包容量还装不下这个物品，那这个物品也就无法选择，若能装下，那选择这个物品的总价值为<code>w[k] + （去掉这个物品所占用的空间、去掉这个物品所组成的小问题的最高价值）</code></p>
+<p>若不选多出来的这个物品，那最高价值和少一个物品且同样背包容量组成的小问题的解一样</p>
+<p>选或不选，两种情况取较大的那个，也就是这个变大了的问题的解</p>
+<p>背包大一点，同样是多了一种可能，原来不能选择的物品，现在也许可以选了</p>
+<p>计算方式同上</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>总结一下</p>
+<p>设i为物品范围，从0-N；j为背包容量，从0-V</p>
+<p>f(i, j)表示为前i个物品，在背包容量为j的情况下的解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">若i &#x3D; 0 或 j &#x3D; 0</span><br><span class="line">则f(i, j) &#x3D; 0</span><br><span class="line"></span><br><span class="line">否则</span><br><span class="line">f(i, j) &#x3D; max(</span><br><span class="line">    w[i] + f(i - 1, j - v[i]), &#x2F;&#x2F; 选择当前物品，若物品占用空间超过背包容量则为0</span><br><span class="line">    f(i - 1, j) &#x2F;&#x2F; 不选当前物品</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>至于Wiki，动态规划是分解问题并求解的方法，但分解问题并求解的并不一定是动态规划</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/12/29/%E9%80%9A%E8%BF%87github-pages%E4%BD%BF%E7%94%A8hexo%EF%BC%88next%E4%B8%BB%E9%A2%98%EF%BC%89%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="通过github pages使用hexo（next主题）搭建博客">
+                  <i class="fa fa-chevron-left"></i> 通过github pages使用hexo（next主题）搭建博客
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2022/01/06/%E9%82%B1%E5%A5%87-Church-%E8%AE%A1%E6%95%B0/" rel="prev" title="邱奇(Church)计数">
+                  邱奇(Church)计数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背包问题"><span class="nav-number">2.1.</span> <span class="nav-text">背包问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初步尝试"><span class="nav-number">2.1.1.</span> <span class="nav-text">初步尝试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#再次尝试"><span class="nav-number">2.1.2.</span> <span class="nav-text">再次尝试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化"><span class="nav-number">2.1.3.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反向求解"><span class="nav-number">2.1.4.</span> <span class="nav-text">反向求解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">2.1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="TongLuyang"
+      src="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+  <p class="site-author-name" itemprop="name">TongLuyang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TongLuyang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'db5da856cb417b60f542',
+      clientSecret: '4d0531cbf95563898c764e2d58e2aa61d1b79aa1',
+      repo: 'tongluyang.github.io',
+      owner: 'tongluyang',
+      admin: ['tongluyang'],
+      id: '50cc7d6e727357a8701c570762033f97',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

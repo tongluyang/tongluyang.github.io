@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="TongLuyang&#39;s Blog">
+<meta property="og:url" content="https://tongluyang.com/index.html">
+<meta property="og:site_name" content="TongLuyang&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="TongLuyang">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://tongluyang.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>TongLuyang's Blog</title>
+  
+
+
+
+
+
+
+  <!-- Clarity tracking code for https://tongluyang.com/ -->
+  <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "9yo8r8hvyo");
+  </script>
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TongLuyang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2025/04/06/%E8%8C%85%E5%8F%B02024%E5%B9%B4%E5%B9%B4%E6%8A%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/06/%E8%8C%85%E5%8F%B02024%E5%B9%B4%E5%B9%B4%E6%8A%A5/" class="post-title-link" itemprop="url">茅台2024年年报</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-04-06 23:29:21 / 修改时间：23:35:45" itemprop="dateCreated datePublished" datetime="2025-04-06T23:29:21+08:00">2025-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/investing/" itemprop="url" rel="index">
+                    <span itemprop="name">investing</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="2024年核心数据"><a href="#2024年核心数据" class="headerlink" title="2024年核心数据"></a>2024年核心数据</h1><p>营业总收入1741亿，去年1506，同比增长15.6%。</p>
+<p>营业收入1709亿，去年1477，同比增长15.71%。</p>
+<p>归母净利862亿，同比增长15.38%。</p>
+<p>分红647亿，其中已分配300亿，剩余需分347亿，总计利润的75%，折合每股分红51.506元，剩余每股需分27.624。</p>
+<p>基酒产量56272吨，去年57204；2024年10月新增产能1800吨。</p>
+<p>2025目标增速，9%。</p>
+<p><strong>目标增速降低至个位数，虽然和目前整体大环境比较还算可以，但已不再像之前年度至少15%+的增速，显示茅台管理层对后续市场形势的看法也有些保守。</strong></p>
+<p><strong>茅台酒基酒产量已经连续4年没有增长，给后续增量带来比较大的压力，后续增长更多靠提价。</strong></p>
+<h2 id="细分"><a href="#细分" class="headerlink" title="细分"></a>细分</h2><p>24年总营收1741亿，+15.6%，构成</p>
+<ol>
+<li>营业收入1709亿，+15.71%<ol>
+<li>白酒，1706亿，+15.89%<ol>
+<li>茅台酒，1459，+15.28%</li>
+<li>系列酒，247，+19.65%</li>
+</ol>
+</li>
+<li>酒店、冰淇淋等，3亿，-40%</li>
+</ol>
+</li>
+<li>财务公司利息收入32亿，+10%</li>
+</ol>
+<p>其他业务5亿变3亿，显示茅台在聚焦产品，是个好的现象。</p>
+<p>系列酒增速高于茅台酒增速，虽然和茅台酒还有很大差距，但其绝对值和行业其他公司相比，也不容小觑。</p>
+<h1 id="2025年利润预测"><a href="#2025年利润预测" class="headerlink" title="2025年利润预测"></a>2025年利润预测</h1><table>
+<thead>
+<tr>
+<th>科目</th>
+<th>2024年</th>
+<th>2025年预测</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>营业总收入</td>
+<td>1741</td>
+<td>1898</td>
+<td>目标增长9%</td>
+</tr>
+<tr>
+<td>营业收入</td>
+<td>1709</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>利息收入</td>
+<td>32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>营业成本</td>
+<td>138</td>
+<td>150</td>
+<td>按目标增长9%估计</td>
+</tr>
+<tr>
+<td>税金及附加</td>
+<td>269</td>
+<td>293</td>
+<td>按目标增长9%估计</td>
+</tr>
+<tr>
+<td>销售、管理费用</td>
+<td>149</td>
+<td>162</td>
+<td>按目标增长9%估计</td>
+</tr>
+<tr>
+<td>财务费用</td>
+<td>-15</td>
+<td>-15</td>
+<td>不变</td>
+</tr>
+<tr>
+<td>营业利润</td>
+<td>1197</td>
+<td>1308</td>
+<td></td>
+</tr>
+<tr>
+<td>所得税</td>
+<td>303</td>
+<td>331</td>
+<td></td>
+</tr>
+<tr>
+<td>净利润</td>
+<td>893</td>
+<td>977</td>
+<td></td>
+</tr>
+<tr>
+<td>归母净利</td>
+<td>862</td>
+<td>943</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="估值"><a href="#估值" class="headerlink" title="估值"></a>估值</h1><p>940亿净利润，30倍市盈率，合理估值940 * 30 = 28200亿。</p>
+<p>三年后估值：</p>
+<p>25年归母净利增长9%到940，26、27按10%增长，例如预计1140。按30市盈率，估值大概1140 * 30=34200亿。（去年过于乐观，按去年15%增速预计，提前一年达到此估值）</p>
+<p>理想买点，三年后估值打对折，17100亿。</p>
+<p>理想卖点，当年50倍市盈率，940 * 50 = 47000亿。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2024/05/26/%E8%8C%85%E5%8F%B02024%E5%B9%B4%E5%BA%A6%E8%B4%A2%E5%8A%A1%E9%A2%84%E7%AE%97%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/26/%E8%8C%85%E5%8F%B02024%E5%B9%B4%E5%BA%A6%E8%B4%A2%E5%8A%A1%E9%A2%84%E7%AE%97%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">茅台2024年度财务预算方案</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-26 13:07:24" itemprop="dateCreated datePublished" datetime="2024-05-26T13:07:24+08:00">2024-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/investing/" itemprop="url" rel="index">
+                    <span itemprop="name">investing</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>2024年5月22日，茅台发布“贵州茅台2023年度股东大会会议资料”，里面包含了“2024 年度财务预算”。</p>
+<p>预算表示，总收入预计增长15%，营业成本增长15%，费用增长13%。</p>
+<p>24年年报刚出时，全部以15%预估全年利润，参见 <a href="/2024/04/14/茅台2023年年报/">茅台2023年年报</a></p>
+<p>此处仅需调整费用的增长率，带来的变化就是859变为861，基本可认为误差范围内，无需修改。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2024/04/14/%E8%8C%85%E5%8F%B02023%E5%B9%B4%E5%B9%B4%E6%8A%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/14/%E8%8C%85%E5%8F%B02023%E5%B9%B4%E5%B9%B4%E6%8A%A5/" class="post-title-link" itemprop="url">茅台2023年年报</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-14 19:36:02" itemprop="dateCreated datePublished" datetime="2024-04-14T19:36:02+08:00">2024-04-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:47:45" itemprop="dateModified" datetime="2025-01-26T09:47:45+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/investing/" itemprop="url" rel="index">
+                    <span itemprop="name">investing</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="2023年核心数据"><a href="#2023年核心数据" class="headerlink" title="2023年核心数据"></a>2023年核心数据</h1><p>营业总收入1477亿，同比增长19%。</p>
+<p>归母净利747亿，同比增长19%。</p>
+<p>分红388亿，利润的51.9%，折合每股分红30.876元。</p>
+<h2 id="细分"><a href="#细分" class="headerlink" title="细分"></a>细分</h2><p>23年总营收1506亿，构成</p>
+<ol>
+<li>营业收入1477亿<ol>
+<li>白酒，1472亿<ol>
+<li>茅台酒，1266</li>
+<li>系列酒，206</li>
+</ol>
+</li>
+<li>酒店、冰淇淋等，5亿</li>
+</ol>
+</li>
+<li>财务公司利息收入29亿<ol>
+<li>股份占比51%</li>
+</ol>
+</li>
+</ol>
+<p>渠道细分<br>1472亿 = 直销672亿 + 批发800亿</p>
+<p>地区细分<br>1472亿 = 国内1429亿 + 国外44亿</p>
+<h1 id="2024年利润预测"><a href="#2024年利润预测" class="headerlink" title="2024年利润预测"></a>2024年利润预测</h1><table>
+<thead>
+<tr>
+<th>科目</th>
+<th>2023年</th>
+<th>2024年预测</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>营业总收入</td>
+<td>1506</td>
+<td>1732</td>
+<td>目标增长15%</td>
+</tr>
+<tr>
+<td>营业收入</td>
+<td>1477</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>利息收入</td>
+<td>29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>营业成本</td>
+<td>119</td>
+<td>137</td>
+<td>按增长15%估计</td>
+</tr>
+<tr>
+<td>税金及附加</td>
+<td>222</td>
+<td>255</td>
+<td>按增长15%估计</td>
+</tr>
+<tr>
+<td>销售、管理费用</td>
+<td>145</td>
+<td>167</td>
+<td>按增长15%估计</td>
+</tr>
+<tr>
+<td>财务费用</td>
+<td>-18</td>
+<td>-18</td>
+<td>不变</td>
+</tr>
+<tr>
+<td>营业利润</td>
+<td>1037</td>
+<td>1191</td>
+<td></td>
+</tr>
+<tr>
+<td>所得税</td>
+<td>261</td>
+<td>300</td>
+<td></td>
+</tr>
+<tr>
+<td>净利润</td>
+<td>775</td>
+<td>891</td>
+<td></td>
+</tr>
+<tr>
+<td>归母净利</td>
+<td>747</td>
+<td>859</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="估值"><a href="#估值" class="headerlink" title="估值"></a>估值</h1><p>860亿净利润，30倍市盈率，合理估值860 * 30 = 25800亿。</p>
+<p>三年后估值：</p>
+<p>24年归母净利增长15%到860，25年接近1000亿，26年继续按15%增长到1150亿。按30市盈率，估值大概1150 * 30=34500亿。</p>
+<p>理想买点，三年后估值打对折，17250亿。</p>
+<p>理想卖点，当年50倍市盈率，860 * 50 = 43000亿。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2024/03/24/%E8%85%BE%E8%AE%AF2023%E5%B9%B4%E5%B9%B4%E6%8A%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/24/%E8%85%BE%E8%AE%AF2023%E5%B9%B4%E5%B9%B4%E6%8A%A5/" class="post-title-link" itemprop="url">腾讯2023年年报</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-24 11:25:32" itemprop="dateCreated datePublished" datetime="2024-03-24T11:25:32+08:00">2024-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/investing/" itemprop="url" rel="index">
+                    <span itemprop="name">investing</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="核心数据"><a href="#核心数据" class="headerlink" title="核心数据"></a>核心数据</h1><p>（全文无特殊说明，金额均指人民币，单位亿元）</p>
+<p>营业收入，6090亿，去年5546，同比增长10%</p>
+<p>非国际归母净利，1577亿，去年1156，同比增长36%</p>
+<h2 id="收入细分"><a href="#收入细分" class="headerlink" title="收入细分"></a>收入细分</h2><p>腾讯的收入主要由增值服务、网络广告、金融科技及企业服务三大板块组成，三块业务收入贡献占99%，具体如下</p>
+<table>
+<thead>
+<tr>
+<th>板块</th>
+<th>金额</th>
+<th>占比</th>
+<th>增长</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>增值服务</td>
+<td>2984</td>
+<td>49%</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>广告</td>
+<td>1015</td>
+<td>17%</td>
+<td>23%</td>
+</tr>
+<tr>
+<td>金融科技及企业服务</td>
+<td>2038</td>
+<td>33%</td>
+<td>15%</td>
+</tr>
+</tbody></table>
+<h3 id="增值服务"><a href="#增值服务" class="headerlink" title="增值服务"></a>增值服务</h3><p>增值服务同比增长4%，至2984亿。</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>金额</th>
+<th>占比</th>
+<th>增长</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>游戏</td>
+<td>1799</td>
+<td>60%</td>
+<td>5%</td>
+<td></td>
+</tr>
+<tr>
+<td>- 国内</td>
+<td>1267</td>
+<td></td>
+<td>2%</td>
+<td></td>
+</tr>
+<tr>
+<td>- 国际</td>
+<td>532</td>
+<td></td>
+<td>14%</td>
+<td>剔除汇率，增长8%</td>
+</tr>
+<tr>
+<td>社交网络</td>
+<td>1185</td>
+<td>40%</td>
+<td>1%</td>
+<td></td>
+</tr>
+<tr>
+<td>- 会员</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- 直播</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td>2984</td>
+<td>100%</td>
+<td>4%</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="广告"><a href="#广告" class="headerlink" title="广告"></a>广告</h3><p>网络广告同比增长23%，至1015亿。</p>
+<p>主要由视频号、微信搜一搜和广告平台升级带动。</p>
+<p>分行业，汽车行业减少，其他行业增加；消费品、互联网、大健康显著增加。</p>
+<h3 id="金融科技及企业服务"><a href="#金融科技及企业服务" class="headerlink" title="金融科技及企业服务"></a>金融科技及企业服务</h3><p>金融科技及企业服务同比增长15%，至2038亿。</p>
+<p>金融科技增长两位数，主要由支付活动增加和理财服务收入增加所带动。</p>
+<p>企业服务增长两位数，主要由视频号带货服务费和云服务所带动。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="成本"><a href="#成本" class="headerlink" title="成本"></a>成本</h3><p>成本3159，总体持平；其中交易成本和渠道及分销成本增加，带宽与服务器成本及内容成本下降。</p>
+<p>交易成本： todo</p>
+<p>渠道及分销成本： 如推广游戏，像元梦之星的各种广告、直播推广等。</p>
+<p>带宽与服务器成本及内容成本： 如腾讯视频、腾讯音乐等，缩减投入，降低版权购买数量，同时这些业务又是服务器、带宽的消耗大户，自然带来成本下降。</p>
+<h3 id="毛利"><a href="#毛利" class="headerlink" title="毛利"></a>毛利</h3><p>毛利2931，增长23%，毛利率由43%提升至48%。</p>
+<p>毛利的变化代表收入结构的变化。由毛利率低的（音乐直播、游戏直播）向毛利率高的（视频号广告、平台服务费）转移。</p>
+<table>
+<thead>
+<tr>
+<th>板块</th>
+<th>金额</th>
+<th>毛利率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>增值服务</td>
+<td>1619</td>
+<td>54%</td>
+</tr>
+<tr>
+<td>广告</td>
+<td>513</td>
+<td>51%</td>
+</tr>
+<tr>
+<td>金融科技及企业服务</td>
+<td>806</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>-790</td>
+<td>-15%</td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td>2931</td>
+<td>48%</td>
+</tr>
+</tbody></table>
+<h1 id="重要事项"><a href="#重要事项" class="headerlink" title="重要事项"></a>重要事项</h1><h2 id="2024年计划回购1000亿港元"><a href="#2024年计划回购1000亿港元" class="headerlink" title="2024年计划回购1000亿港元"></a>2024年计划回购1000亿港元</h2><blockquote>
+<p>於二零二四年，我們建議派發截至二零二三年十二月三十一日 止年度的股息每股3.40港元（約等於 3 320億港元），增長42%，並計劃將我們的股份 回購規模至少翻倍，從二零二三年的490億港元增加至二零二四年的超1,000億港元。</p>
+</blockquote>
+<p>在股价低于实际价值时回购，能够增加投资人的权益。</p>
+<h2 id="2024年派息322亿港元"><a href="#2024年派息322亿港元" class="headerlink" title="2024年派息322亿港元"></a>2024年派息322亿港元</h2><p>2023年每股3.4港元，2022年为2.4港元。总股本94.62亿。</p>
+<p>预计2023年流程分红现金3.4*94.62=322亿港元</p>
+<h2 id="财务报表重排"><a href="#财务报表重排" class="headerlink" title="财务报表重排"></a>财务报表重排</h2><blockquote>
+<p>若干項目已自經營盈利以上重新分類至經營盈利以下，且前期的比較數字已相應重列。詳見綜合財務報表附註1</p>
+</blockquote>
+<blockquote>
+<p>截至二零二三年十二月三十一日止年度，本集團綜合收益表中若干項目已被重新分類。先前在 「其他收益╱（虧損）淨額」中的若干項目被重新分類至「投資收益╱（虧損）淨額及其他」，包括 (i)以權益法入賬的投資的減值撥備；(ii)商譽及業務合併產生的其他無形資產的減值撥備；(iii) 處置及視同處置投資公司的收益淨額；(iv)投資產生的公允價值變動及股息收入；(v)捐款及其 他。「投資收益╱（虧損）淨額及其他」以及「利息收入」呈列於「經營盈利」以下。管理層認為，該 等修訂後的綜合收益表呈列能更好地反映本集團日常運營的業績及投資活動相關的收入及收益 ╱虧損的財務影響，將有助於綜合財務報表使用者更好地了解本集團的財務表現。二零二二年 的比較數字已重列以與本年呈列一致。</p>
+</blockquote>
+<p>年报P34表格。<br>简略如下</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">移动</th>
+<th align="center">移动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>……</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>毛利</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>利息收入</td>
+<td align="center"></td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td>……</td>
+<td align="center"></td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td>其他收益（中的部分）</td>
+<td align="center">↓</td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td><strong>经营利润</strong></td>
+<td align="center">↓</td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td>投资收益</td>
+<td align="center">←</td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td>利息收入</td>
+<td align="center"></td>
+<td align="center">←</td>
+</tr>
+<tr>
+<td>……</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>重排后，利息收入和投资收益，不再算作经营盈利，更多象征着腾讯不再将其认定为主业。</p>
+<h1 id="估值"><a href="#估值" class="headerlink" title="估值"></a>估值</h1><p>2023年归母净利1577，不考虑疫情恢复，不考虑收入结构，不考虑毛利率、净利率比收入增长率高，归母净利按收入增速10%计算，三年后2026年归母净利可达1577 * 1.1^3 = 2100亿</p>
+<p>无风险收益率按3%-4%，合理市盈率25-30倍，对应合理市值为 2100 * (25 + 30) / 2 = 57750亿</p>
+<p>目前20240-03-24，市值27327亿港元，25255亿人民币，不到3年后合理市值的一半，在理想买点以下。</p>
+<p>2024年卖点，2023年利润的50倍，1577 * 50 = 78850，对应股价900港元；哪怕是40倍，市值也要6万亿以上，对应股价720+港元。</p>
+<p>美梦做起来吧。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2023/12/31/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/12/31/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" class="post-title-link" itemprop="url">2023最后一天</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-31 22:51:01" itemprop="dateCreated datePublished" datetime="2023-12-31T22:51:01+08:00">2023-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>2023最后一天，给博客加个分类，也给自己挖个坑，后面写点其他东西。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2022/01/06/%E9%82%B1%E5%A5%87-Church-%E8%AE%A1%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/06/%E9%82%B1%E5%A5%87-Church-%E8%AE%A1%E6%95%B0/" class="post-title-link" itemprop="url">邱奇(Church)计数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-06 13:48:16" itemprop="dateCreated datePublished" datetime="2022-01-06T13:48:16+08:00">2022-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/computer/" itemprop="url" rel="index">
+                    <span itemprop="name">computer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>在计算机中，程序和数据并没有一个明显的分界线。数据可以被当作程序执行，程序也可以作为数据使用。</p>
+<p>前者，很多语言提供了<code>eval</code>功能，将一段数据作为代码执行，比如JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">"alert(1)"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这里我们主要说一下后者。</p>
+<p>假设有一门语言，它可以定义函数，调用函数，但没有提供基础的数字类型，我们要如何使用函数来实现数字这一特性。</p>
+<p>为了实现这个特性，我们要对这个特性有个初步的了解。</p>
+<p>也就是，什么是数字？</p>
+<p>在日常生活中，我们可以说，我有3个苹果、他打了我2下、口袋里空空如也1块钱也没有等等。</p>
+<p>我们把数字作为计数的一个东西（循环定义？），换句话说是某一个东西（上述苹果）或某个动作（打人）的重复。</p>
+<p>3个苹果就是有一个苹果，又有一个苹果，还有一个苹果；</p>
+<p>打人2下，就是打一下，再打一下；</p>
+<p>0就是空空如也，口袋没钱或者没执行打人这个动作。</p>
+<p>如果一种语言可以定义函数、调用函数，那我们就可以通过定义一个函数，然后再调用这个函数表示数字，调用这个函数n次就代表数字n。</p>
+<blockquote>
+<p>这种程序表示数字的方式叫邱奇编码，数字叫邱奇数。以lambda演算的发明者阿隆佐·邱奇命名。</p>
+</blockquote>
+<h3 id="定义数字"><a href="#定义数字" class="headerlink" title="定义数字"></a>定义数字</h3><p>邱奇数就是函数被调用的次数。</p>
+<p>为了使函数可以被调用多次，我们让这个函数调用的返回值能够被重新应用于这个函数。</p>
+<p>换句话说，这个函数的参数和返回值的类型是相同的。</p>
+<p>比如定义函数f，函数参数为a</p>
+<p>那1就是<code>f(a)</code>，2就是<code>f(f(a))</code>，以此类推。</p>
+<p>对于0，就是函数f，一次也没被调用。</p>
+<p>没被调用怎么表示？</p>
+<p>我们需要注意的是，数字是函数被调用的次数，在数字被使用前，函数是不能被调用的，否则调用完了数据也就看不到了。</p>
+<p>有点像上发条的玩具，定义一个数字就是给玩具上好适当的发条，使用这个数字时，就是打开开关，玩这个玩具看被上了多少发条。</p>
+<p>也就是说1，实际上是——接受一个函数和此函数的参数，并将这个参数应用到这个函数上。是一个动作，也是一个函数。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">one</span> = \f a -&gt; f a</span><br><span class="line"></span><br><span class="line"><span class="comment">--two = \f a -&gt; f (f a)</span></span><br><span class="line"><span class="comment">--two = \f a -&gt; f . f a</span></span><br><span class="line"><span class="title">two</span> = \f -&gt; f . f</span><br></pre></td></tr></table></figure>
+<p>另外一种语言，比如js写就是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> one = <span class="function"><span class="keyword">function</span>(<span class="params">f, a</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> f(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> two = <span class="function"><span class="keyword">function</span>(<span class="params">f, a</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> f(f(a))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>既然如此，0就是</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">zero</span> = \f a -&gt; a</span><br></pre></td></tr></table></figure>
+<p>传进的函数f，被忽略</p>
+<h3 id="简单计算"><a href="#简单计算" class="headerlink" title="简单计算"></a>简单计算</h3><p>数字是可以被计算的，如两个数字相加</p>
+<p>先从简单的开始，加一个固定的数，如加1</p>
+<p>按照之前的定义，加1，就是在原来的基础上，多执行一次相同的动作</p>
+<p>比如：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">addOne</span> n f a = f (n f a)</span><br></pre></td></tr></table></figure>
+
+<p>为什么这样写？为什么会有三个参数，这分别代表什么意思？</p>
+<p>在分析之前，我们先考虑下类型，邱奇数的类型、作为依据的被调用函数的类型以及计算函数参数的类型等</p>
+<p>首先看被调用函数的类型</p>
+<p>之前提到</p>
+<blockquote>
+<p>为了使函数可以被调用多次，我们让这个函数调用的返回值能够被重新应用于这个函数。<br><br>换句话说，这个函数的参数和返回值的类型是相同的。</p>
+</blockquote>
+<p>这里包含以下信息：</p>
+<ol>
+<li>这个被调用函数是一个函数（显而易见）</li>
+<li>这个函数可以接受一个参数</li>
+<li>这个函数的参数类型与返回值类型相同，返回值可以被重新应用于此函数</li>
+</ol>
+<p>也就是我们可以给此函数的类型起个别名，用以下表示</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 接受一个类型a，返回一个类型a，别名Func</span></span><br><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Func</span> a = a -&gt; a</span></span><br></pre></td></tr></table></figure>
+
+<p>再看数字的类型</p>
+<p>之前也有提到</p>
+<blockquote>
+<p>1，实际上是——接受一个函数和此函数的参数，并将这个参数应用到这个函数上。是一个动作，也是一个函数。</p>
+</blockquote>
+<p>同样，这包含以下信息：</p>
+<ol>
+<li>这个邱奇数是一个函数</li>
+<li>这个函数接受两个参数，一个是之前提到的被调用Func a，一个是可被应用到函数的参数，也就是a</li>
+<li>考虑这个函数的返回值类型，由于函数体只是简单的将参数应用到被调用函数上，然后返回，所以其类型也就是Func a的返回值类型，同样是a</li>
+</ol>
+<p>于是，我们就有了邱奇数的类型别名</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 接受一个类型Func a和类型a，返回一个类型a，别名ChurchNum</span></span><br><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">ChurchNum</span> a = <span class="type">Func</span> a -&gt; a -&gt; a</span></span><br></pre></td></tr></table></figure>
+
+<p>对于加一函数addOne</p>
+<p>很明显，它接受一个类型ChurchNum a，返回另一个比它大1的另一个ChurchNum a</p>
+<p>也就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addOne :: ChurchNum a -&gt; ChurchNum a</span><br></pre></td></tr></table></figure>
+
+<p>如果返回值类型不用邱奇数的类型别名，则为</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">addOne</span> :: <span class="type">ChurchNum</span> a -&gt; (a -&gt; a) -&gt; a -&gt; a</span><br></pre></td></tr></table></figure>
+<p>那addOne的实现</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">addOne</span> :: <span class="type">ChurchNum</span> a -&gt; (a -&gt; a) -&gt; a -&gt; a</span><br><span class="line"><span class="title">addOne</span> n f a = f (n f a)</span><br></pre></td></tr></table></figure>
+<p>可以理解为，addOne接受一个ChurchNum a类型的邱奇数，实参为n，返回另一个邱奇数，这个返回的邱奇数（类型为函数），接受两个参数，实参分别为f和a</p>
+<p>到这里，两个邱奇数相加的函数add，也就很容易出来了</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 类型，接受两个邱奇数，返回另一个邱奇数</span></span><br><span class="line"><span class="title">add</span> :: <span class="type">ChurchNum</span> a -&gt; <span class="type">ChurchNum</span> a -&gt; <span class="type">ChurchNum</span> a</span><br><span class="line"><span class="comment">-- 实现，先将参数a应用于f n1次，再将结果应用f n2次</span></span><br><span class="line"><span class="title">add</span> n1 n2 f a = n2 f (n1 f a)</span><br></pre></td></tr></table></figure>
+
+<h3 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h3><p>我们一直在说邱奇数是一组动作，这组动作代表一个参数被应用于一个函数多少次</p>
+<p>还举例说定义数字像是给玩具上发条，使用数字是让玩具动起来</p>
+<p>那怎样才能让玩具动起来</p>
+<p>我们可以用实际的例子来说明</p>
+<p>比如我们可以说动作是——给一个字符串头上加一个字符<code>&#39;a&#39;</code>，动作的参数就是被加的字符串，初始参数这里我们用空字符串</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">let</span> f = ('a':)</span><br><span class="line"><span class="title">let</span> a = <span class="string">""</span></span><br></pre></td></tr></table></figure>
+<p>做几个简单的计算</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 0，执行这个函数，看看结果，也就是让玩具动起来</span></span><br><span class="line"><span class="type">Prelude</span>&gt; zero f a</span><br><span class="line"><span class="comment">-- 返回空字符串，也就是加字符a这个动作没有被执行</span></span><br><span class="line"><span class="string">""</span></span><br><span class="line"><span class="comment">-- 通过0加一定义1</span></span><br><span class="line"><span class="type">Prelude</span>&gt; one = addOne zero</span><br><span class="line"><span class="comment">-- 通过1加一定义2</span></span><br><span class="line"><span class="type">Prelude</span>&gt; two = addOne one</span><br><span class="line"><span class="comment">-- 通过1 + 2定义3</span></span><br><span class="line"><span class="type">Prelude</span>&gt; three = add one two</span><br><span class="line"><span class="comment">-- 查看3的结果</span></span><br><span class="line"><span class="type">Prelude</span>&gt; three f a</span><br><span class="line"><span class="comment">-- 字符a被加到字符串头上3次</span></span><br><span class="line"><span class="string">"aaa"</span></span><br></pre></td></tr></table></figure>
+
+<p>虽然我们之前假设系统中没有数字类型，但为了方便我们的验证，用其做一下检查是没问题的</p>
+<p>我们可以说动作是——给一个系统数字加一，动作的初始参数是0</p>
+<p>运行</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">let</span> f = (+<span class="number">1</span>)</span><br><span class="line"><span class="title">let</span> a = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="title">one</span> = addOne zero</span><br><span class="line"><span class="title">two</span> = addOne one</span><br><span class="line"><span class="title">three</span> = add one two</span><br><span class="line"><span class="title">three</span> f a</span><br></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; <span class="keyword">let</span> f = (+<span class="number">1</span>)</span><br><span class="line"><span class="type">Prelude</span>&gt; <span class="keyword">let</span> a = <span class="number">0</span></span><br><span class="line"><span class="type">Prelude</span>&gt;</span><br><span class="line"><span class="type">Prelude</span>&gt; one = addOne zero</span><br><span class="line"><span class="type">Prelude</span>&gt; two = addOne one</span><br><span class="line"><span class="type">Prelude</span>&gt; three = add one two</span><br><span class="line"><span class="type">Prelude</span>&gt; three f a</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2021/12/15/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/15/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%E4%B8%80/" class="post-title-link" itemprop="url">动态规划详解一</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-15 19:06:14" itemprop="dateCreated datePublished" datetime="2021-12-15T19:06:14+08:00">2021-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/computer/" itemprop="url" rel="index">
+                    <span itemprop="name">computer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>动态规划（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
+</blockquote>
+<p>此为wiki百科中的定义，重点是<code>分解</code></p>
+<p>换句话说，就是：</p>
+<ol>
+<li><p>将一个大问题，拆分成几个小问题</p>
+</li>
+<li><p>求小问题的解</p>
+</li>
+<li><p>推出大问题的解</p>
+</li>
+</ol>
+<p>以上还有个隐含的条件，即被分解的小问题要和大问题有联系，这样才能从小问题的解推出大问题的解</p>
+<h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><h4 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h4><blockquote>
+<p>有<code>N</code>件物品和一个容量是<code>V</code>的背包。每件物品只能使用一次。<br><br>第<code>i</code>件物品的体积是<code>v[i]</code>，价值是<code>w[i]</code>。<br><br>求解在背包容量范围内，所能装物品的最大价值是多少</p>
+</blockquote>
+<h5 id="初步尝试"><a href="#初步尝试" class="headerlink" title="初步尝试"></a>初步尝试</h5><p>用最直观的想法来解决此问题，比较容易想到的是：</p>
+<ol>
+<li>先装单位价值最高的</li>
+<li>再继续装剩下的物品中，单位价值最高的</li>
+</ol>
+<p>咦，看起来我把问题分解了</p>
+<p>假设第k件物品是单位价值最高的，那只需要解决</p>
+<blockquote>
+<p>有<code>N-1</code>件物品（除了第k件）和一个容量为<code>V-v[k]</code>的背包。。。。</p>
+</blockquote>
+<p>被分解的问题又可以以同样的方式进一步分解，分解的过程中N和V越来越小</p>
+<p>若N=1或V&lt;=0，也就有了唯一解</p>
+<p>这样我们做到了之前所说的：第一步问题拆分和第二步求小问题的解</p>
+<p>第三步是不是也可以做到了？</p>
+<p>看起来很简单，把所有小问题的解串起来就可以了</p>
+<p>我们找个简单的数算一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; 3</span><br><span class="line">V &#x3D; 5</span><br><span class="line">v &#x3D; [1,2,3]</span><br><span class="line">w &#x3D; [2,4,4]</span><br></pre></td></tr></table></figure>
+<p>很容易看出，第1、2个物品单位价值最高，都是2，剩余第3个为4/3</p>
+<p>根据之前的思路</p>
+<ol>
+<li><p>前两个单位价值一样，但第二个总价更高，所以我们先装第2个；</p>
+</li>
+<li><p>其次装第1个，其单位价值也是最高的；</p>
+</li>
+<li><p>此时，价值为2+4=6，已用容量为1+2=3，剩余容量2</p>
+</li>
+<li><p>再然后，发现剩余的那个已经装不进了</p>
+</li>
+</ol>
+<p>好像不对啊</p>
+<p>如果装2和3的话，价值为4+4=8，总价值更大</p>
+<p>问题出在什么地方？</p>
+<p>我们装了单位价值较高的第1个，但是因为装了它，单位价值较低但总价较高的3装不进去了，如果不装它，反而恰好可以装进去</p>
+<p>因小失大，为了1，丢了3</p>
+<p>鼠目寸光，为了眼前的利益，放弃了后续可能的更高价值</p>
+<p>以上，为<code>贪心</code></p>
+<h5 id="再次尝试"><a href="#再次尝试" class="headerlink" title="再次尝试"></a>再次尝试</h5><p>那如何避免因鼠目寸光造成的因小失大呢？我确实也是根据说明先拆分问题再求解再推大问题的呀</p>
+<p>因为之前只顾眼前，有问题，所以现在在选择时还需要进一步看一下做的本次选择对后续的影响</p>
+<p>比如现在随便选择一个装进背包</p>
+<p>若选的是第1个，则后续子问题就变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; N - 1 &#x3D; 2</span><br><span class="line">V &#x3D; V - 1 &#x3D; 4</span><br><span class="line">v &#x3D; [x, 2, 3]</span><br><span class="line">w &#x3D; [x, 4, 4]</span><br></pre></td></tr></table></figure>
+<p>整个问题的解则为2 + 子问题的解</p>
+<p>若选的是第2个，则后续子问题就变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; N - 1 &#x3D; 2</span><br><span class="line">V &#x3D; V - 2 &#x3D; 3</span><br><span class="line">v &#x3D; [x, x, 3]</span><br><span class="line">w &#x3D; [x, x, 4]</span><br></pre></td></tr></table></figure>
+<p>注意，这里物品1也被拿掉了，相当于1没选，因为先拿2再拿1和先拿1再拿2是一样的，而后者会被选1的那种可能覆盖到，这里无需重复计算</p>
+<p>整个问题的解则为4 + 子问题的解</p>
+<p>若选的是第3个，则后续子问题就变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; N - 1 &#x3D; 2</span><br><span class="line">V &#x3D; V - 3 &#x3D; 2</span><br><span class="line">v &#x3D; [x, x, x]</span><br><span class="line">w &#x3D; [x, x, x]</span><br></pre></td></tr></table></figure>
+<p>整个问题的解则为4 + 子问题的解</p>
+<p>而这时，子问题中的物品已经没有了，结果肯定是0，无需继续拆了</p>
+<p>由于不同的选择，产生的后续子问题也不一样，所以我们无法确定当前选择在后续看来是不是最优的</p>
+<p>但我们可以确定，最优解在这三种选择中的一个（废话，所有可能的选择都被你暴力的一个个全列出来了-_-!）</p>
+<p>且若每个子问题的解是最优的，那本次最优的选择为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max(2 + 子问题1的解, 4 + 子问题2的解, 4 + 子问题3的解)</span><br></pre></td></tr></table></figure>
+<p>没有其他可能了</p>
+<p>到目前为止，我们前进了一小步</p>
+<p>我们把这个大问题，拆成了3个小问题，并能确保能够从小问题的解得出大问题的解</p>
+<p>虽然数量多了，但是问题简单了</p>
+<p>同样</p>
+<p>我们可以把3个小问题，用同样的方式，继续拆分</p>
+<p>这样问题更多了，问题也更简单了</p>
+<p>直到物品没了或背包满了，无需继续拆分为止</p>
+<p>子问题求解后，上一级问题的解就显而易见了，一直到最上层</p>
+<p>以上，我们解决了整个问题</p>
+<p>这种方式叫。。。<code>暴力</code>，暴力的<code>递归</code></p>
+<h5 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h5><p>因为我们遍历了所有的可能</p>
+<p>那，还有什么地方可以优化吗</p>
+<p>我们继续</p>
+<p>之前的数据可能不太好看，我们稍微调整一下，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N &#x3D; 4</span><br><span class="line">V &#x3D; 5</span><br><span class="line">v &#x3D; [1,1,2,3]</span><br><span class="line">w &#x3D; [2,2,4,4]</span><br></pre></td></tr></table></figure>
+<p>我们添加了一个物品，新添加的物品和原来第一个一样</p>
+<p>我们很容易看出：选择1和选择2，是一样的；选择1+2和选择3也是一样的</p>
+<p>因为他们或他们的和 体积和价值完全一样</p>
+<p>因选择他们中的一个而拆分出的子问题，有很大一部分是重叠的</p>
+<p>但是在我们的计算中，子问题被计算了两次，重复了</p>
+<p>为了避免重复计算</p>
+<p>我们可以将子问题的解进行缓存，当第二次遇到同样的子问题时，直接返回已求出的解就可以了</p>
+<p>回顾一下我们拆分子问题的过程</p>
+<ol>
+<li>选择一个物品</li>
+<li>剩余背包的体积和剩余物品组成了一个子问题</li>
+</ol>
+<p>或</p>
+<ol>
+<li>选择另一个物品（前一个物品不选，既选前一个又选当前这种情况不在此考虑，因为会被前一个物品选择后拆分出的子问题覆盖）</li>
+<li>剩余背包的体积和其后物品组成了一个子问题（之所以是其后，原因同上）</li>
+</ol>
+<p>其实第一种是第二种的特殊表现，可以归到第二种去</p>
+<p>由此可见，子问题的唯一性由剩余背包的体积，和当前选择物品的后续物品组成，而后续物品的结尾位置是相同的，我们只需要知道起始位置就够了</p>
+<p>体积的范围为0 - V，位置范围为0 - N</p>
+<p>子问题的解是一个数值</p>
+<p>所以我们可以在第一次遇到子问题时，将其解缓存到一个二维数组中，下次再遇到时，直接返回</p>
+<p>以上，我们通过<code>递归</code>加<code>记忆化</code>的方式，优化了此问题</p>
+<p>优化后，子问题的范围最多有<code>V * N</code>种</p>
+<h5 id="反向求解"><a href="#反向求解" class="headerlink" title="反向求解"></a>反向求解</h5><p>那既然子问题的解是有限的</p>
+<p>那我们可不可以先把所有子问题的解全求出来，然后在求出整个问题的解</p>
+<p>当然可以，这种方式也就是所谓的<code>递推</code></p>
+<p>递推是递归的逆向</p>
+<p>递归时，我们直接求解大问题，当大问题需要用到子问题的解时，再对子问题进行求解</p>
+<p>递推时，我们通过已知小问题的解，推出更大问题的解，推导方向为最终的问题</p>
+<p>那哪些问题的解是已知的？</p>
+<p>我们之前递归时提到</p>
+<blockquote>
+<p>直到物品没了或背包满了，无需继续拆分为止</p>
+</blockquote>
+<p>无需拆分，也就是说当前问题的解已经的已知的了</p>
+<p>显而易见，没物品可选和无空间可装，问题的解都是0</p>
+<p>我们从这个最小的问题，一步步构造大问题</p>
+<p>比这个小问题稍微大点的问题是什么？</p>
+<p>物品多一个，或背包大一点</p>
+<p>物品多一个，就多了一种可能，可能选了这个物品，总价值变的更高了，如果选择当前物品不能使总价值更高，那最高的总价值还是和之前的小问题一样，不会更差</p>
+<p>若要选择多出来的这个物品，那意味着这个物品要占用一部分背包容量，即v[k]，如果整个背包容量还装不下这个物品，那这个物品也就无法选择，若能装下，那选择这个物品的总价值为<code>w[k] + （去掉这个物品所占用的空间、去掉这个物品所组成的小问题的最高价值）</code></p>
+<p>若不选多出来的这个物品，那最高价值和少一个物品且同样背包容量组成的小问题的解一样</p>
+<p>选或不选，两种情况取较大的那个，也就是这个变大了的问题的解</p>
+<p>背包大一点，同样是多了一种可能，原来不能选择的物品，现在也许可以选了</p>
+<p>计算方式同上</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>总结一下</p>
+<p>设i为物品范围，从0-N；j为背包容量，从0-V</p>
+<p>f(i, j)表示为前i个物品，在背包容量为j的情况下的解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">若i &#x3D; 0 或 j &#x3D; 0</span><br><span class="line">则f(i, j) &#x3D; 0</span><br><span class="line"></span><br><span class="line">否则</span><br><span class="line">f(i, j) &#x3D; max(</span><br><span class="line">    w[i] + f(i - 1, j - v[i]), &#x2F;&#x2F; 选择当前物品，若物品占用空间超过背包容量则为0</span><br><span class="line">    f(i - 1, j) &#x2F;&#x2F; 不选当前物品</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>至于Wiki，动态规划是分解问题并求解的方法，但分解问题并求解的并不一定是动态规划</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2020/12/29/%E9%80%9A%E8%BF%87github-pages%E4%BD%BF%E7%94%A8hexo%EF%BC%88next%E4%B8%BB%E9%A2%98%EF%BC%89%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/29/%E9%80%9A%E8%BF%87github-pages%E4%BD%BF%E7%94%A8hexo%EF%BC%88next%E4%B8%BB%E9%A2%98%EF%BC%89%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">通过github pages使用hexo（next主题）搭建博客</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-29 20:12:06" itemprop="dateCreated datePublished" datetime="2020-12-29T20:12:06+08:00">2020-12-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>前置安装Nodejs和git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化git仓库"><a href="#初始化git仓库" class="headerlink" title="初始化git仓库"></a>初始化git仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;init&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加Next主题"><a href="#添加Next主题" class="headerlink" title="添加Next主题"></a>添加Next主题</h2><h3 id="fork-hexo-theme-next"><a href="#fork-hexo-theme-next" class="headerlink" title="fork hexo-theme-next"></a>fork hexo-theme-next</h3><p>next 主题官方地址 <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a></p>
+<p>fork到自己账号下</p>
+<h3 id="添加为hexo的submodule"><a href="#添加为hexo的submodule" class="headerlink" title="添加为hexo的submodule"></a>添加为hexo的submodule</h3><p>blog目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https:&#x2F;&#x2F;github.com&#x2F;tongluyang&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改hexo主题为next"><a href="#修改hexo主题为next" class="headerlink" title="修改hexo主题为next"></a>修改hexo主题为next</h2><p>hexo配置文件<code>/_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;add hexo theme next&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="修改next配置"><a href="#修改next配置" class="headerlink" title="修改next配置"></a>修改next配置</h3><p>next配置文件<code>themes/next/_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br><span class="line"></span><br><span class="line">avatar:</span><br><span class="line">  # Replace the default image and set the url here.</span><br><span class="line">  url: https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;25279149?s&#x3D;120&amp;v&#x3D;4 #&#x2F;images&#x2F;avatar.gif</span><br></pre></td></tr></table></figure>
+<p>提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd themes&#x2F;next</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;scheme and avatar&quot;</span><br><span class="line">cd ..&#x2F;..</span><br><span class="line">git add themes&#x2F;next</span><br><span class="line">git commit -m &quot;update submodule of next&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改基本信息"><a href="#修改基本信息" class="headerlink" title="修改基本信息"></a>修改基本信息</h2><p>hexo配置文件<code>/_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: TongLuyang&#39;s Blog</span><br><span class="line">subtitle: &#39;&#39;</span><br><span class="line">description: &#39;&#39;</span><br><span class="line">keywords:</span><br><span class="line">author: TongLuyang</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: Asia&#x2F;Shanghai</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#39;http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39; and root as &#39;&#x2F;child&#x2F;&#39;</span><br><span class="line">url: https:&#x2F;&#x2F;tongluyang.com</span><br></pre></td></tr></table></figure>
+<p>提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update site info&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>如果要把源文件放在私有仓库，那么需要使用<code>hexo-deployer-git</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>修改hexo配置文件<code>/_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: &#39;git&#39;</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;tongluyang&#x2F;tongluyang.github.io.git</span><br><span class="line">  name: tongluyang</span><br><span class="line">  email: tongluyang@gmail.com</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2020/05/01/Haskell%E5%8F%B3%E6%8A%98%E5%8F%A0%E5%AE%9E%E7%8E%B0%E5%B7%A6%E6%8A%98%E5%8F%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/Haskell%E5%8F%B3%E6%8A%98%E5%8F%A0%E5%AE%9E%E7%8E%B0%E5%B7%A6%E6%8A%98%E5%8F%A0/" class="post-title-link" itemprop="url">Haskell右折叠实现左折叠</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-01 09:48:18" itemprop="dateCreated datePublished" datetime="2020-05-01T09:48:18+08:00">2020-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/computer/" itemprop="url" rel="index">
+                    <span itemprop="name">computer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在《Real World Hashell》一书里，有一段通过foldr表示foldl的代码</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myFoldl</span> :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; a</span><br><span class="line"></span><br><span class="line"><span class="title">myFoldl</span> f z xs = foldr step id xs z</span><br><span class="line">    <span class="keyword">where</span> step x g a = g (f a x)</span><br></pre></td></tr></table></figure>
+<p>刚看到这的时候，感觉特别难懂，尤其是之前没有函数式编程的经历，对柯里化了解不深的情况下，更加一头雾水</p>
+<p>如果是顺序读这本书的话，我们应该已经知道了<code>foldr</code>的签名</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :<span class="class"><span class="keyword">type</span> foldr</span></span><br><span class="line"><span class="title">foldr</span> :: <span class="type">Foldable</span> t =&gt; (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b</span><br></pre></td></tr></table></figure>
+
+<h3 id="困惑"><a href="#困惑" class="headerlink" title="困惑"></a>困惑</h3><p>这里最让人感到奇怪的有两点</p>
+<ol>
+<li><p><code>foldr</code>的签名是接受三个参数，如下</p>
+<ol>
+<li>一个函数，这个函数接受两个参数，类型a和类型b，返回一个类型b的值</li>
+<li>一个类型b的初始值</li>
+<li>一个可折叠类型a，这里我们简单当作一个列表</li>
+</ol>
+<p>但是，实际上我们传递了四个参数</p>
+</li>
+<li><p>上面说了，<code>foldr</code>的第一个参数是个函数，接受两个参数，但传递过去的step函数，有三个参数</p>
+</li>
+</ol>
+<p>上述两点，也可以总结成一点：<strong>参数个数不匹配</strong>。</p>
+<h3 id="Currying"><a href="#Currying" class="headerlink" title="Currying"></a>Currying</h3><p>要理解这个问题，我们需要一些其他知识，也就是“部分函数应用和柯里化”(Currying)</p>
+<p>这部分内容在原书后续有讲到</p>
+<p>这两部分是相辅相成的，理解了部分函数应用和柯里化，会更容易弄明白foldr表示foldl；而弄清楚foldr表示foldl，则会对部分函数应用和柯里化有更深刻的理解</p>
+<p>在说部分函数应用和柯里化之前，我们先看看一般命令式语言中的现象</p>
+<p>比如有如下Java代码，两数相加</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数需要两个参数a和b，然后返回两数之和</p>
+<p>我们可以通过<code>add(1, 2)</code>的方式调用这个函数，但是，<code>add(1)</code>则是不合法的，因为没有此种方法签名</p>
+<p>与Java不同的是，在Haskell中，这是允许的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Prelude&gt; add a b &#x3D; a + b</span><br><span class="line">Prelude&gt; :type add</span><br><span class="line">add :: Num a &#x3D;&gt; a -&gt; a -&gt; a</span><br><span class="line">Prelude&gt; :type add 1</span><br><span class="line">add 1 :: Num a &#x3D;&gt; a -&gt; a</span><br></pre></td></tr></table></figure>
+
+<p>在Haskell中，本质上，所有的函数都只接受一个参数</p>
+<p>上面的<code>add</code>函数，看上去接受两个类型为a的参数，返回一个类型为a的值，实际上是先接受一个类型为a的参数，返回一个函数，这个函数再接受一个类型为a的参数，返回类型为a的值</p>
+<p>就像我们有一个机床，可以将一堆铁疙瘩制作成各种机器，然后我们可以用制造出的机器，将原料加工成成品</p>
+<p>现在我们要做衣服，做衣服需要布料，需要使用缝纫机，我们还没缝纫机，不过我们有机床，有铁疙瘩，可以造一个出来，在Haskell里可以表示为</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Iron</span> = <span class="type">String</span></span></span><br><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Cloth</span> = <span class="type">String</span></span></span><br><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Clothes</span> = <span class="type">String</span></span></span><br><span class="line"></span><br><span class="line"><span class="title">machineTool</span> :: <span class="type">Iron</span> -&gt; <span class="type">Cloth</span> -&gt; <span class="type">Clothes</span></span><br></pre></td></tr></table></figure>
+
+<p>如果用类似Java语言解释这个签名的话，就是<code>machineTool</code>这个函数需要两个参数，铁和布，将这两个参数同时放进去，会出来一个衣服</p>
+<p>在Haskell里，并不需要同时传两个参数，我们可以只传一个</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sewMachine</span> = machineTool <span class="string">"a piece of iron"</span></span><br></pre></td></tr></table></figure>
+<p>这是合法的，表示给机床一块铁，做出了一台缝纫机，缝纫机是个函数，可以继续接受参数，它现在接受一个Cloth类型的参数，返回Clothes类型的结果</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*<span class="type">Main</span>&gt; :<span class="class"><span class="keyword">type</span> sewMachine </span></span><br><span class="line"><span class="title">sewMachine</span> :: <span class="type">Cloth</span> -&gt; <span class="type">Clothes</span></span><br></pre></td></tr></table></figure>
+
+<p>这个缝纫机可以接受一匹布，产生一件衣服 <code>sewMachine &quot;a piece of cloth&quot;</code></p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>回到最初的右折叠表示左折叠问题</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myFoldl</span> f z xs = foldr step id xs z</span><br><span class="line">    <span class="keyword">where</span> step x g a = g (f a x)</span><br></pre></td></tr></table></figure>
+<p>再看一下foldr的签名</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :<span class="class"><span class="keyword">type</span> foldr</span></span><br><span class="line"><span class="title">foldr</span> :: <span class="type">Foldable</span> t =&gt; (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b</span><br></pre></td></tr></table></figure>
+
+<p>foldr第一个参数是函数，其返回值类型为b，和foldr第二个参数，也就是foldr的初始值类型一样，也是b</p>
+<p>在<code>foldr step id xs z</code>这里，第二个参数，也就是初始值，是<code>id</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :<span class="class"><span class="keyword">type</span> id</span></span><br><span class="line"><span class="title">id</span> :: a -&gt; a</span><br></pre></td></tr></table></figure>
+<p>我们看到id是一个函数，接受一个类型为a的参数，返回的类型同样也是a（实际上<code>id</code>是<code>identity</code>的缩写，本身的意思，<code>id</code>作用是返回参数本身）</p>
+<p>既然初始值类型是函数，那foldr的第一个参数，返回的也是一个函数</p>
+<p>我们看到step的定义，它可以接受三个参数，但是在foldr的应用过程中，只会应用两个（列表的从右往左下一个值和初始值或者上一次函数的计算结果），结合函数的部分应用和柯里化，我们知道step函数在应用两个参数后，返回的是另一个函数，这个函数接受一个参数（step函数参数的第三个）</p>
+<p>也就是foldr的第一个参数，类型为<code>(a -&gt; b -&gt; b)</code>，在实际执行过程中，<code>a</code>类型是列表内容的类型，第二个参数<code>b</code>类型，第一次是初始值，也就是<code>id</code>，实际类型是一个函数，同时，结果仍然是<code>b</code>，是一个函数，作为下一次计算<code>(a -&gt; b -&gt; b)</code>的第二参数</p>
+<p>由于foldr的最终返回结果是一个函数，所以可以应用一个参数，这个参数在<code>foldr step id xs z</code>这里，也就是<code>z</code>，或者说可以把<code>foldr step id xs z</code>看作是<code>(foldr step id xs) z</code>，foldr全部折叠完，其最后结果是一个函数，然后用z作为函数的参数对这个最终函数进行调用</p>
+<h3 id="展开"><a href="#展开" class="headerlink" title="展开"></a>展开</h3><p>参数个数的问题弄清楚后，我们可以把表达式进行展开，将实际参数带入到表达式的变量中</p>
+<p>假设我们现在使用<code>myFoldl</code>对一个列表求和，列表是<code>[1,2]</code>，求和的初始值是<code>0</code></p>
+<p>按照左折叠的规则，我们预期执行顺序应该是<code>((0 + 1) + 2)</code>，从初始值和列表第一个元素开始相加，其和与列表的第二个元素继续相加，如此从左到右一次计算整个列表，并返回最终结果</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myFoldl</span> f z xs = foldr step id xs z</span><br><span class="line">    <span class="keyword">where</span> step x g a = g (f a x)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 我们的调用为</span></span><br><span class="line"><span class="title">myFoldl</span> (+) <span class="number">0</span> [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"><span class="comment">-- 参数带入变量</span></span><br><span class="line"><span class="comment">-- f == (+)</span></span><br><span class="line"><span class="comment">-- z == 0</span></span><br><span class="line"><span class="comment">-- xs == [1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 也就是</span></span><br><span class="line"><span class="title">foldr</span> step id [<span class="number">1</span>,<span class="number">2</span>] <span class="number">0</span></span><br><span class="line"></span><br><span class="line">==&gt; foldr (\x g a -&gt; g (f a x)) id [<span class="number">1</span>,<span class="number">2</span>] <span class="number">0</span></span><br><span class="line"><span class="comment">-- 参数再带入到变量，列表从右向左</span></span><br><span class="line"><span class="comment">-- x == 2</span></span><br><span class="line"><span class="comment">-- g == id</span></span><br><span class="line"><span class="comment">-- f == (+)</span></span><br><span class="line"></span><br><span class="line">==&gt; foldr (\x g a -&gt; g (f a x)) (\a -&gt; id ((+) a <span class="number">2</span>)) [<span class="number">1</span>] <span class="number">0</span></span><br><span class="line"><span class="comment">-- x == 1</span></span><br><span class="line"><span class="comment">-- g == (\a = id ((+) a 2))</span></span><br><span class="line"><span class="comment">-- f == (+)</span></span><br><span class="line"></span><br><span class="line">==&gt; foldr (\x g a -&gt; g (f a x)) (\a -&gt; (\a -&gt; id ((+) a <span class="number">2</span>)) ((+) a <span class="number">1</span>)) [] <span class="number">0</span></span><br><span class="line"></span><br><span class="line">==&gt;     (\a -&gt; (\a -&gt; id ((+) a <span class="number">2</span>)) ((+) a <span class="number">1</span>)) <span class="number">0</span></span><br><span class="line"><span class="comment">--               ↑                  |........|</span></span><br><span class="line"><span class="comment">--               ↑                      ↓</span></span><br><span class="line"><span class="comment">--               a == ((+) a 1)   &lt;----/</span></span><br><span class="line"></span><br><span class="line">==&gt;     (\a -&gt; (id ((+) ((+) a <span class="number">1</span>) <span class="number">2</span>))) <span class="number">0</span></span><br><span class="line"><span class="comment">--              ↑</span></span><br><span class="line"><span class="comment">--              id返回参数本身</span></span><br><span class="line"></span><br><span class="line">==&gt;     (\a -&gt; ((+) ((+) a <span class="number">1</span>) <span class="number">2</span>)) <span class="number">0</span></span><br><span class="line"><span class="comment">--        ↑</span></span><br><span class="line"><span class="comment">--        a == 0</span></span><br><span class="line"></span><br><span class="line">==&gt;     ((+) ((+) <span class="number">0</span> <span class="number">1</span>) <span class="number">2</span>)</span><br><span class="line"><span class="comment">-- 改成中缀</span></span><br><span class="line"></span><br><span class="line">==&gt;     ((+) <span class="number">0</span> <span class="number">1</span>) + <span class="number">2</span></span><br><span class="line">==&gt;     (<span class="number">0</span> + <span class="number">1</span>) + <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>经过上述将实际参数带入到变量，推导后，myFoldl的行为确实与预期一样，我们就这样通过foldr表示了foldl</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tongluyang.com/2020/04/02/%E4%B8%89%E5%90%91%E5%88%87%E5%88%86%E5%BF%AB%E6%8E%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+      <meta itemprop="name" content="TongLuyang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TongLuyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/02/%E4%B8%89%E5%90%91%E5%88%87%E5%88%86%E5%BF%AB%E6%8E%92/" class="post-title-link" itemprop="url">三向切分快排</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-02 17:32:47" itemprop="dateCreated datePublished" datetime="2020-04-02T17:32:47+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-26 09:21:54" itemprop="dateModified" datetime="2025-01-26T09:21:54+08:00">2025-01-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/computer/" itemprop="url" rel="index">
+                    <span itemprop="name">computer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>三向切分快排是针对特殊场景的一种优化，比较适合数组中重复元素比较多的时候。</p>
+<p>与标准快速排序分为小于等于基准和大于基准两个部分不同，三向切分分为三个部分，也就是小于基准、等于基准和大于基准，也就是把标准快排的等于部分单独拆分出来，这样这部分相同的数据就不用再次比较了，所以，当重复元素比较多时，将会有比较大的性能提升。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>先放代码，后面解释</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">threeWayPartition</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    threeWayPartition(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">threeWayPartition</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (start &gt;= end) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> lt = start;</span><br><span class="line">    <span class="keyword">int</span> eq = start;</span><br><span class="line">    <span class="keyword">int</span> gt = end;</span><br><span class="line">    <span class="keyword">int</span> base = nums[eq];</span><br><span class="line">    <span class="keyword">while</span> (eq &lt;= gt) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[eq] &gt; base) &#123;</span><br><span class="line">            swap(nums, eq, gt);</span><br><span class="line">            gt--;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[eq] &lt; base) &#123;</span><br><span class="line">            swap(nums, lt, eq);</span><br><span class="line">            lt++;</span><br><span class="line">            eq++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            eq++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    threeWayPartition(nums, start, lt - <span class="number">1</span>);</span><br><span class="line">    threeWayPartition(nums, gt + <span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = nums[i];</span><br><span class="line">    nums[i] = nums[j];</span><br><span class="line">    nums[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码的核心是while循环，主要涉及三个索引变量lt、eq、gt</p>
+<p>三个变量可以将数据分为四个部分，除了结果的小于、等于、大于外，还有过程中的未比较部分</p>
+<p>也就是</p>
+<ul>
+<li>[start-lt)    代表小于基准的数据</li>
+<li>[lt-eq)       代表等于基准的数据</li>
+<li>[eq-gt]       代表未比较的数据</li>
+<li>(gt-end]      代表大于基准的数据</li>
+</ul>
+<p>其中，小于和等于在前半部分，大于在后半部分，为比较在中间，随着比较的进行，小于等于的向后扩展，大于的向前扩展，慢慢吃掉未比较的区域</p>
+<p>初始时，所有的数据[start-end]都是未比较的，小于、等于、大于基数的数据都没有，所以<code>lt</code>、<code>eq</code>初始化为0，<code>gt</code>初始化为<code>end</code></p>
+<p>我们先将基准定义为开始第一个元素</p>
+<p>我们遍历未比较的数据，也就是<code>[eq-gt]</code></p>
+<p>从第一个元素<code>nums[eq]</code>开始</p>
+<p>由于基数就是第一个，自己和自己肯定相等，所以执行<code>else</code>逻辑，也就是和基数相等，相等时，等于基准的数据多了一个，<code>eq</code>索引后移</p>
+<p>接下来第二个数与基准元素比较，如果这个数比基准元素大，我们是要把它放到数组的第三部分的，也就是<code>(gt-end]</code>区域，区域不包含<code>qt</code>，也意味着<code>gt</code>代表下一个大于基准的数将要被放入的位置，此时<code>nums[eq]</code>比基准大，所以两数交换位置，交换完成后，大于基准的数多了一个，所以<code>gt</code>前移，而<code>eq</code>位置的数据是从原来的<code>qt</code>来的，还是未比较的，所以<code>eq</code>的位置不动，还需要继续比较</p>
+<p>如果<code>num[eq]</code>比基准元素小，我们要把它放入<code>[start-lt)</code>区域，同样，区域不包含<code>lt</code>，<code>lt</code>是下一个比基准小的数的位置，所以交换<code>eq</code>和<code>lt</code>位置的数据，将小于基准的数，也就是<code>num[eq]</code>放到<code>lt</code>那里，此时小于基数的数多了一个，<code>lt</code>前移；由于原始<code>lt</code>放的是等于基准的数据（<code>[lt-eq)</code>），现在到<code>eq</code>这个位置来了，已经不需要再次比较了，相当于把“等于基准的数据”这个集合的第一个数挪到了最后的位置，数量不变，虽然数量不变，但是由于这个集合的位置是在小于基准那个集合的后面，小于基准的集合多了一个，所以<code>eq</code>也要同步后移</p>
+<p>继续以相同的逻辑遍历</p>
+<p>直到没有未比较的数据，也就是<code>[eq-gt]</code>这个集合为空，所以退出条件是gt &gt; eq</p>
+<p>经过一轮遍历后，数组被分为三个部分</p>
+<p>也就是</p>
+<ul>
+<li>[start-lt)    代表小于基准的数据</li>
+<li>[lt-eq)       代表等于基准的数据</li>
+<li>(gt-end]      代表大于基准的数据</li>
+</ul>
+<p><code>[eq-gt]</code>已经没有了</p>
+<p>等于基准的数据已经不需要再排序了，小于和大于的都只是比基准大或小，内部并不一定有序，所以继续对两个区域用相同的逻辑进行排序</p>
+<p>标准快排，只是基准那一个数不需要下次的排序，而不是等于基准的一批数，如果等于基准的数很多，就会造成浪费，而三向切分就是针对这种情况的一个优化。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="TongLuyang"
+      src="https://avatars2.githubusercontent.com/u/25279149?s=120&v=4">
+  <p class="site-author-name" itemprop="name">TongLuyang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TongLuyang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>
